@@ -1,16 +1,11 @@
 import Loader from "@/components/shared/Loader";
 import UserCard from "@/components/shared/UserCard";
 import { useToast } from "@/components/ui/use-toast";
-import { useGetPosts, useGetUsers } from "@/lib/react-query/queriesAndMutations";
-import {useInView} from 'react-intersection-observer'
-import { useEffect, useState } from "react";
-import useDebounce from "@/hooks/useDebounce";
+import {useGetUsers } from "@/lib/react-query/queriesAndMutations";
 
 
 const AllUsers = () => {
   const { toast } = useToast();
-  const [searchValue, setSearchValue] = useState('')
-  const debouncedValue = useDebounce(searchValue, 500);
 
   const { data: creators, isLoading, isError: isErrorCreators } = useGetUsers();
 
